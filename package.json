@@ -2,6 +2,7 @@
   "name": "frontiers",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://ff2005.github.io/frontiers",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -16,10 +17,10 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "deploy": "gh-pages -d dist",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
