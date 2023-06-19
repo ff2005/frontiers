@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/frontiers/static/css/main.073c9b0a.css",
+    "main.js": "/frontiers/static/js/main.3f86c822.js",
+    "static/media/logo.svg": "/frontiers/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/frontiers/index.html",
+    "main.073c9b0a.css.map": "/frontiers/static/css/main.073c9b0a.css.map",
+    "main.3f86c822.js.map": "/frontiers/static/js/main.3f86c822.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.3f86c822.js"
+  ]
+}
