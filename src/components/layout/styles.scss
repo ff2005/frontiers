@@ -1,0 +1,27 @@
+@use "../ui/styles/modules/theme.scss" as t;
+
+.layout {
+  .layout-header {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: t.color(back);
+  }
+
+  .layout-content {
+    margin-top: 4rem;
+    display: block;
+  }
+
+  .layout-footer {
+    display: block;
+    background-color: t.color(main);
+    padding: 1rem;
+    margin-top: 6rem;
+  }
+}

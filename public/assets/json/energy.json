@@ -1,0 +1,13 @@
+{
+  "pack": 60,
+  "generation": {
+    "minutes": 5,
+    "max": 160
+  },
+  "daily": {
+    "Limited Bundles": { "pack": 1 },
+    "Platinum Market": { "pack": 2 },
+    "Alliance": { "energy": [0, 65] },
+    "Playtime Rewards": { "energy": 60 }
+  }
+}

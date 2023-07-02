@@ -1,0 +1,38 @@
+@use "sass:color";
+
+@function _colorScale($color, $scale: 0) {
+  @if $scale < 0 {
+    @return color.scale($color, $lightness: ($scale * -1));
+  }
+  @if $scale > 0 {
+    @return color.scale($color, $blackness: $scale);
+  }
+  @return $color;
+}
+
+$theme: (
+  color: (
+    gray: #40403E,
+    main: #ff6200,
+    positive: #000,
+    negative: #fff,
+    eletric: #324BCF,
+    thermal: #C15329,
+    chemical: #507318,
+    antimater: #7D38CC,
+    back: _colorScale(#000, -14%),
+  ),
+  size: (
+    0: 0,
+    1: 0.25em,
+    2: 0.5em,
+  ),
+);
+
+@function color($color, $scale: 0) {
+  @return _colorScale(map-get(map-get($theme, color), $color), $scale);
+}
+
+@function size($size) {
+  @return map-get(map-get($theme, size), $color);
+}

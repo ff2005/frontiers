@@ -1,0 +1,65 @@
+@use "../styles/modules/theme.scss" as t;
+
+.table {
+  margin: 2rem 0;
+  max-width: 100%;
+  max-height: 100%;
+
+  .table-container {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+  }
+
+  .table-content {
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    overflow: auto;
+    position: relative;
+    padding-top: 1px;
+    padding-left: 1px;
+    // &::-webkit-scrollbar              { width: 0; height: 0; display: none; }
+    // &::-webkit-scrollbar-button       { width: 0; height: 0; display: none; }
+    // &::-webkit-scrollbar-track        { width: 0; height: 0; display: none; }
+    // &::-webkit-scrollbar-track-piece  { width: 0; height: 0; display: none; }
+    // &::-webkit-scrollbar-thumb        { width: 0; height: 0; display: none; }
+    // &::-webkit-scrollbar-corner       { width: 0; height: 0; display: none; }
+    // &::-webkit-resizer                { width: 0; height: 0; display: none; }
+  }
+
+  .table-cell {
+    margin-top: -1px;
+    margin-left: -1px;
+    padding: 0.6rem 1.2rem;
+    border: 0.5px solid t.color(main, -60%);
+    background-color: t.color(negative, 1%);
+    color: t.color(positive);
+
+    &.table-cell--header {
+      background-color: t.color(positive);
+      border: 1px solid t.color(main, 90%);
+      color: t.color(negative);
+    }
+  
+    &.table-cell--sticky {
+      position: sticky;
+      left: -1px;
+      top: -1px;
+    }
+
+    &.table-cell--empty {
+      background-color: transparent;
+      border: 1px none;
+    }
+
+    &.table-cell--center {
+      text-align: center;
+    }
+
+    &.table-cell--right {
+      text-align: right;
+    }
+  
+  }
+}

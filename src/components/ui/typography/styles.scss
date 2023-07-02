@@ -1,0 +1,11 @@
+@use "../styles/modules/theme.scss" as t;
+
+.typography {
+  display: block;
+  position: relative;
+
+  h1 {
+    // background-color: t.color(main);
+    // color: #fff;
+  }
+}

@@ -1,0 +1,29 @@
+@use "../ui/styles/modules/theme.scss" as t;
+
+.navigation-link {
+  display: inline-block;
+  position: relative;
+  padding: 1.6em 1em 0.8em 1.6em;
+  cursor: pointer;
+  background-color: t.color(gray);
+  color: #fff;
+  min-width: 6em;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: bold;
+  margin-right: 1em;
+  transition: all 0.15s ease-in;
+
+  &.navigation-link--selected {
+    background-color: t.color(main);
+    &::after {
+      content: '';
+      border-left: 0.3em solid t.color(gray);
+      position: absolute;
+      top: 0;
+      right: 0.4em;
+      height: 100%;
+    }
+  }
+}

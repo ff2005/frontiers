@@ -1,0 +1,83 @@
+{
+  "nightmare": {
+    "10": {
+      "name": "Forge of Heaven",
+      "reward": {
+        "equip": { "category": "repair", "stars": [3, 5] },
+        "optional": {
+          "credits": [925, 1000]
+        }
+      },
+      "1": {
+        "energy": 10,
+        "reward": {
+          "exp": 0,
+          "equip": { "type": "weapon" }
+        }
+      },
+      "2": {
+        "energy": 10,
+        "reward": {
+          "exp": 0,
+          "equip": { "type": "hull" }
+        }
+      },
+      "3": {
+        "energy": 10,
+        "reward": {
+          "exp": 0,
+          "equip": {
+            "type": "generator"
+          },
+          "optional": {
+            "mainframe": { "quantity": 1, "stars": 2 }
+          }
+        }
+      },
+      "4": {
+        "energy": 10,
+        "reward": {
+          "exp": 0,
+          "equip": { "type": "sensor" },
+          "optional": {
+            "mainframe": { "quantity": 1, "stars": 2 }
+          }
+        }
+      },
+      "5": {
+        "energy": 10,
+        "reward": {
+          "exp": 0,
+          "equip": {
+            "type": "software"
+          },
+          "optional": {
+            "mainframe": { "quantity": 1, "stars": 2 }
+          }
+        }
+      },
+      "6": {
+        "energy": 10,
+        "reward": {
+          "exp": 0,
+          "equip": {
+            "type": "thusters"
+          },
+          "optional": {
+            "mainframe": { "quantity": 1, "stars": 2 }
+          }
+        }
+      },
+      "7": {
+        "energy": 11,
+        "reward": {
+          "exp": 0,
+          "equip": { "type": "random" },
+          "optional": {
+            "mainframe": { "quantity": 1, "stars": 2 }
+          }
+        }
+      }
+    }
+  }
+}
