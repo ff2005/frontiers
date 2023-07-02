@@ -1,0 +1,12 @@
+{
+  "token": {
+    "generation": 360,
+    "max": 2
+  },
+  "raid": {
+    "normal": { "speed": 0, "security": 0 },
+    "hard": { "speed": 0, "security": 0 },
+    "brutal": { "speed": 0, "security": 0 },
+    "nightmare": { "speed": 0, "security": 0 }
+  }
+}
