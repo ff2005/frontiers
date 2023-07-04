@@ -16,7 +16,7 @@ export default () => {
     <Navigation.Router
       root="/frontiers"
       routes={{
-        "/info": <Info />,
+        "": <Info />,
         "/events": <Events />,
       }}
     >
