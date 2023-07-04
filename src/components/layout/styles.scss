@@ -79,14 +79,14 @@
 
   .layout-content {
     padding-top: 4rem;
+    padding-bottom: 6rem;
     display: block;
-    min-height: calc(100vh - 13rem);
+    min-height: calc(100vh - 10rem);
   }
 
   .layout-footer {
     display: block;
     background-color: t.color(main);
     padding: 1rem;
-    margin-top: 6rem;
   }
 }
