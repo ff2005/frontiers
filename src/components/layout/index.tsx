@@ -11,28 +11,25 @@ const Header = () => {
   const hide = useCallback(() => setActive(false), []);
 
   return (
-    <div className="layout-header">
-      <div
-        className={cn("layout-header-menu", {
-          "layout-header-menu--active": active,
-        })}
-        onClick={hide}
-      >
-        <Navigation.Link path="">Info</Navigation.Link>
-        <Navigation.Link path="/events">Events</Navigation.Link>
-        <Navigation.Link path="/events1">Events</Navigation.Link>
-        <Navigation.Link path="/events2">Events</Navigation.Link>
-        <Navigation.Link path="/events3">Events</Navigation.Link>
-        <Navigation.Link path="/events4">Events</Navigation.Link>
-        <Navigation.Link path="/events5">Events</Navigation.Link>
-        <Navigation.Link path="/events6">Events</Navigation.Link>
-        <Navigation.Link path="/events7">Events</Navigation.Link>
-        <Navigation.Link path="/events8">Events</Navigation.Link>
-        <Navigation.Link path="/events9">Events</Navigation.Link>
-        <Navigation.Link path="/events10">Events</Navigation.Link>
-        <Navigation.Link path="/events11">Events</Navigation.Link>
-        <Navigation.Link path="/events12">Events</Navigation.Link>
-        <Navigation.Link path="/events13">Events</Navigation.Link>
+    <div className={cn("layout-header", { "layout-header--active": active })}>
+      <div className="layout-header-menu" onClick={hide}>
+        <div className="layout-header-menu-content">
+          <Navigation.Link path="">Info</Navigation.Link>
+          <Navigation.Link path="/events">Events</Navigation.Link>
+          <Navigation.Link path="/events1">Events</Navigation.Link>
+          <Navigation.Link path="/events2">Events</Navigation.Link>
+          <Navigation.Link path="/events3">Events</Navigation.Link>
+          <Navigation.Link path="/events4">Events</Navigation.Link>
+          <Navigation.Link path="/events5">Events</Navigation.Link>
+          <Navigation.Link path="/events6">Events</Navigation.Link>
+          <Navigation.Link path="/events7">Events</Navigation.Link>
+          <Navigation.Link path="/events8">Events</Navigation.Link>
+          <Navigation.Link path="/events9">Events</Navigation.Link>
+          <Navigation.Link path="/events10">Events</Navigation.Link>
+          <Navigation.Link path="/events11">Events</Navigation.Link>
+          <Navigation.Link path="/events12">Events</Navigation.Link>
+          <Navigation.Link path="/events13">Events</Navigation.Link>
+        </div>
       </div>
       <div className="layout-header-action" onClick={toggle}>
         <div className="layout-header-action-content">Menu</div>
