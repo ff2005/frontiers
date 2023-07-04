@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/frontiers/static/css/main.45cb7347.css",
-    "main.js": "/frontiers/static/js/main.b4d29978.js",
+    "main.css": "/frontiers/static/css/main.4241886b.css",
+    "main.js": "/frontiers/static/js/main.4d758648.js",
     "index.html": "/frontiers/index.html",
-    "main.45cb7347.css.map": "/frontiers/static/css/main.45cb7347.css.map",
-    "main.b4d29978.js.map": "/frontiers/static/js/main.b4d29978.js.map"
+    "main.4241886b.css.map": "/frontiers/static/css/main.4241886b.css.map",
+    "main.4d758648.js.map": "/frontiers/static/js/main.4d758648.js.map"
   },
   "entrypoints": [
-    "static/css/main.45cb7347.css",
-    "static/js/main.b4d29978.js"
+    "static/css/main.4241886b.css",
+    "static/js/main.4d758648.js"
   ]
 }
