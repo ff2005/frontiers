@@ -1,4 +1,4 @@
-const evalCN = (cn: string | CNObject) => {
+const evalCN = (cn: undefined | string | CNObject) => {
   if (typeof cn === "string") {
     return cn;
   }
@@ -15,7 +15,7 @@ export interface CNObject {
   [cn: string]: boolean | undefined;
 }
 
-export const cn = (...cns: (string | CNObject)[]) =>
+export const cn = (...cns: (undefined |string | CNObject)[]) =>
   cns
     .map((cn) => evalCN(cn))
     .filter((cn) => cn)
