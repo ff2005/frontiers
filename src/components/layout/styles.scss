@@ -3,19 +3,84 @@
 .layout {
   .layout-header {
     position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
-    background-color: t.color(back);
+    height: 100%;
+
+    .layout-header-menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: rgba(t.color(back), 0.9);
+      padding: 1rem 0;
+      overflow-y: auto;
+      transition: all 0.15s ease-in-out;
+
+      &.layout-header-menu--active {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+
+    .layout-header-action {
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: default;
+
+      &::after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30%;
+        margin-bottom: -0.4rem;
+        border-bottom: 0.1rem solid t.color(main);
+      }
+    }
+
+    .layout-header-action-content {
+      position: relative;
+      padding: 1rem 3rem;
+      overflow: hidden;
+      font-weight: bold;
+
+      &::before {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        background-color: t.color(main);
+        top: 0;
+        left: 0;
+        margin-left: -9.8rem;
+        width: 300%;
+        height: 300%;
+        transform: rotate(-45deg);
+
+      }
+    }
+
+    .navigation-link {
+      margin: 0.4rem 0;
+    }
   }
 
   .layout-content {
-    margin-top: 4rem;
+    padding-top: 4rem;
     display: block;
+    min-height: calc(100vh - 13rem);
   }
 
   .layout-footer {
