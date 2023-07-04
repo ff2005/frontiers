@@ -6,12 +6,14 @@ export interface NavigationPage {
   };
 }
 
+// http://www.domain.com/<root>/?/<path>/&<query>#<hash>
+
 export const QUERY = {
   parse: (value = ""): { [key: string]: string } => {
     return value.split("&").reduce((query, s) => {
       const s2 = s.split("=");
       if (s2[0]) {
-        query[s2[0]] = s2[1];
+        query[s2[0]] = s2[1] || s2[0];
       }
       return query;
     }, {});
@@ -25,18 +27,20 @@ export const QUERY = {
 
 export const PAGE = {
   parse: (value = ""): NavigationPage => {
-    const v1 = value.split("?");
-    const v2 = v1[0].split("#");
+    const v1 = (value.split("/?")[1] || "").split("#")[0];
+    const v2 = v1.split("&")
+    const p = (v2[0] || "").startsWith("/") ? v2[0] : ""
+    const q = QUERY.parse(((v2[0] || "").startsWith("/") ? v2[1] : v2[0]) || "");
+    const h = (value.split("#")[1] || "").split("?")[0];
     return {
-      path: v2[0] || "",
-      hash: v2[1] || "",
-      query: QUERY.parse(v1[1] || ""),
+      path: p || "",
+      hash: h || "",
+      query: q,
     };
   },
   stringify: (page: NavigationPage): string => {
-    return `${page.path}${page.hash ? "#" : ""}${page.hash}${
-      Object.keys(page.query).length > 0 ? "?" : ""
-    }${QUERY.stringify(page.query)}`;
+    // prettier-ignore
+    return `/?${page.path}${QUERY.stringify(page.query)}${page.hash ? "#" : ""}${page.hash}`;
   },
 };
 
