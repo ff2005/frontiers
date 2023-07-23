@@ -15,7 +15,7 @@ export interface Event {
   getEvents: (date: Date) => EventCalendar[];
 }
 
-const referenceDate = getUTCDate(2023, 1, 3, 0, 0, 0);
+const referenceDate = getUTCDate(2023, 1, 4, 0, 0, 0);
 
 const events = ["equipment", "arena", "energy", "recruitment", "promotion", "bounty"];
 
