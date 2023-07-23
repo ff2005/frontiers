@@ -10,29 +10,25 @@
   @return $color;
 }
 
-$theme: (
+$_theme: (
   color: (
     gray: #40403E,
     main: #ff6200,
     positive: #000,
     negative: #fff,
-    eletric: #324BCF,
-    thermal: #C15329,
-    chemical: #507318,
-    antimater: #7D38CC,
     back: _colorScale(#000, -14%),
   ),
   size: (
     0: 0,
-    1: 0.25em,
-    2: 0.5em,
+    1: 0.25rem,
+    2: 0.5rem,
   ),
 );
 
 @function color($color, $scale: 0) {
-  @return _colorScale(map-get(map-get($theme, color), $color), $scale);
+  @return _colorScale(map-get(map-get($_theme, color), $color), $scale);
 }
 
 @function size($size) {
-  @return map-get(map-get($theme, size), $color);
+  @return map-get(map-get($_theme, size), $color);
 }

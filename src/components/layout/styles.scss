@@ -1,6 +1,8 @@
+@use "../ui/styles/modules/responsive.scss" as r;
 @use "../ui/styles/modules/theme.scss" as t;
 
 .layout {
+
   .layout-header {
     position: fixed;
     top: 0;
@@ -33,6 +35,15 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+
+      @include r.screen(md) {
+        max-width: 1024px;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+      }
     }
 
     .layout-header-action {
@@ -71,25 +82,53 @@
         width: 300%;
         height: 300%;
         transform: rotate(-45deg);
-
       }
     }
 
     .navigation-link {
       margin: 0.4rem 0;
+
+      @include r.screen(md) {
+        margin: 1rem 3rem;
+      }
     }
   }
 
+  .layout-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
   .layout-content {
-    padding-top: 4rem;
-    padding-bottom: 6rem;
-    display: block;
-    min-height: calc(100vh - 10rem);
+    padding: 1rem 0.5rem 6rem 0.5rem;
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  .layout-title {
+    padding-right: 40%;
   }
 
   .layout-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: block;
     background-color: t.color(main);
-    padding: 1rem;
+    text-align: right;
+    line-height: 0;
+  }
+
+  .layout-footer-item {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+
+    img {
+      height: 1.5rem;
+      border: 0 none;
+      padding: 0;
+      margin: 1rem;
+    }
   }
 }

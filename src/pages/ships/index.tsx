@@ -1,24 +1,46 @@
 import { Fragment } from "react";
-import { useAlliance } from "../../hooks";
-import { Grid, MinuteTicker, Navigation } from "../../components";
+import { Navigation, Grid, MinuteTicker } from "../../components";
 import { format } from "../../helper";
+import { useShip } from "../../hooks";
 
-export const Alliance = () => {
-  const alliance = useAlliance();
+export const Ships = () => {
+  const ship = useShip();
+  console.log('ship', ship)
 
-  if (alliance) {
+  if (ship) {
+    // console.log('ship.calcUpgrade(10)', ship.calcUpgrade(10))
+    // console.log('-----------------------------------------------')
+    // console.log('ship.calcUpgrade(20)', ship.calcUpgrade(20))
+    // console.log('-----------------------------------------------')
+    // console.log('ship.calcUpgrade(30)', ship.calcUpgrade(30))
+    // console.log('-----------------------------------------------')
+    // console.log('ship.calcUpgrade(40)', ship.calcUpgrade(40))
+    // console.log('-----------------------------------------------')
+
+    // console.log('ship.calcRank(2)', ship.calcRank(2, { 2: 100 }))
+    // console.log('ship.calcRank(3)', ship.calcRank(3, { 2:100, 3:100, 4:100, 5:100 }))
+    // console.log('ship.calcRank(4)', ship.calcRank(4))
+    // console.log('ship.calcRank(4)', ship.calcRank(4, { 2:1, 3:2, 4:100, 5:100 }))
+    // console.log('ship.calcRank(5)', ship.calcRank(5))
+    console.log('ship.calcRank(6)', ship.calcRank(6))
+    console.log('ship.calcUpgrade(60)', ship.calcUpgrade(60))
     return (
       <div>
-        <Navigation.Anchor name="alliance" />
-        <h2>Alliance</h2>
-        <Navigation.Anchor name="alliance-token" />
-        <h3>Raid - Token</h3>
-        <Grid rows={2}>
-          <Grid.Item header>Generation</Grid.Item>
-          <Grid.Item>{format.toTimeDescription(alliance.raid.token.generation)}</Grid.Item>
-          <Grid.Item header>Max</Grid.Item>
-          <Grid.Item>{alliance!.raid.token.max}</Grid.Item>
+        <Navigation.Anchor name="upgrades" />
+        <h3>Upgrades</h3>
+        <Grid rows={3}>
+          <Grid.Item header sticky>Level</Grid.Item>
+          {Object.keys(ship.upgrade).map((u) => (<Grid.Item key={u} header className="text-center">{u}</Grid.Item>))}
+          <Grid.Item header sticky>Exp</Grid.Item>
+          {Object.keys(ship.upgrade).map((u) => (<Grid.Item key={u} className="text-right">{ship.upgrade[u].exp}</Grid.Item>))}
+          <Grid.Item header sticky>Sum</Grid.Item>
+          {Object.keys(ship.upgrade).map((u) => (<Grid.Item key={u} className="text-right">{ship.upgrade[u].sum}</Grid.Item>))}
         </Grid>
+        <h3>Ranks</h3>
+        <Grid rows={3}>
+
+        </Grid>
+        {/*
         <Navigation.Anchor name="alliance-raid-specs" />
         <h3>Raid - Specs</h3>
         <Grid rows={3}>
@@ -81,6 +103,7 @@ export const Alliance = () => {
             </Fragment>
           ))}
         </Grid>
+        {/**/}
       </div>
     );
   }

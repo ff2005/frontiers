@@ -1,72 +1,73 @@
-import { useMemo } from "react";
 import { useBounties } from "../../hooks";
-import { Navigation, Table } from "../../components";
+import { Grid, Navigation } from "../../components";
 
 export const Bounties = () => {
   const bounties = useBounties();
 
-  const data = useMemo(() => {
-    if (bounties) {
-      const levels = Object.keys(bounties.level);
-      return [
-        [
-          { value: "Levels", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: l,
-            header: true,
-          })),
-          { value: "", type: "empty" },
-        ],
-        [
-          { value: "Energy", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: bounties.level[l].energy,
-            type: "number",
-          })),
-          { value: "Spend" },
-        ],
-        [
-          { value: "Exp", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: bounties.level[l].reward.exp,
-            type: "number",
-          })),
-          { value: "Gain" },
-        ],
-        [
-          { value: "Exp / Energy", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: bounties.level[l].expPerEnergy,
-            type: "number",
-          })),
-          { value: "", type: "empty" },
-        ],
-        [
-          { value: "Credits", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: bounties.level[l].reward.credits,
-            type: "number",
-          })),
-          { value: "Reward" },
-        ],
-        [
-          { value: "Credits / Energy", header: true, sticky: true },
-          ...levels.map((level) => ({
-            value: bounties.level[level].creditsPerEnergy,
-            type: "number",
-          })),
-          { value: "", type: "empty" },
-        ],
-      ];
-    }
-    return [];
-  }, [bounties]);
-
-  return (
-    <div>
-      <Navigation.Anchor name="bounty" />
-      <h2>Bounty</h2>
-      <Table data={data} />
-    </div>
-  );
+  if (bounties) {
+    const levels = Object.keys(bounties.level);
+    return (
+      <div>
+        <Navigation.Anchor name="bounty" />
+        <h2>Bounty</h2>
+        <Grid rows={6}>
+          <Grid.Item header sticky>
+            Levels
+          </Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item header className="text-center" key={l}>
+              {l}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+          <Grid.Item header sticky>
+            Energy
+          </Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {bounties.level[l].energy}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Spend</Grid.Item>
+          <Grid.Item header sticky>
+            Exp
+          </Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {bounties.level[l].reward.exp}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Gain</Grid.Item>
+          <Grid.Item header sticky>
+            Exp / Energy
+          </Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {bounties.level[l].reward.expPerEnergy}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+          <Grid.Item header sticky>
+            Credits
+          </Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {bounties.level[l].reward.credits}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Reward</Grid.Item>
+          <Grid.Item header sticky>
+            Credits / Energy
+          </Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {bounties.level[l].reward.creditsPerEnergy}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+        </Grid>
+      </div>
+    );
+  }
+  return null;
 };

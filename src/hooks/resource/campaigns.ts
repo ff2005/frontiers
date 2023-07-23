@@ -9,7 +9,9 @@ export interface Campaigns {
           stage: {
             [stage: string]: {
               energy: number;
-              exp: number;
+              battle: {
+                exp: number;
+              }
               reward: {
                 exp: number;
                 equip: {
@@ -24,9 +26,9 @@ export interface Campaigns {
                     stars: number;
                   };
                 };
+                expPerEnergy: number;
+                creditsPerEnergy: number[];
               };
-              expPerEnergy: number;
-              creditsPerEnergy: number[];
             };
           };
         };
@@ -51,12 +53,16 @@ export const useCampaigns = () => {
                   name: data[d][l].name,
                   stage: {
                     ...Object.keys(data[d][l]).reduce((stages, s) => {
+                      const battle = data[d][l].battle || { exp: 0 };
                       const reward = data[d][l].reward;
                       if (s !== "reward" && s !== "name") {
                         return {
                           ...stages,
                           [s]: {
                             ...data[d][l][s],
+                            battle: {
+                              ...battle,
+                            },
                             reward: {
                               ...reward,
                               ...data[d][l][s].reward,
@@ -68,15 +74,15 @@ export const useCampaigns = () => {
                                 ...reward.optional,
                                 ...data[d][l][s].reward.optional,
                               },
+                              creditsPerEnergy: data[d][
+                                l
+                              ].reward.optional.credits.map(
+                                (credits: number) =>
+                                  credits / data[d][l][s].energy
+                              ),
+                              expPerEnergy:
+                                data[d][l][s].reward.exp / data[d][l][s].energy,
                             },
-                            creditsPerEnergy: data[d][
-                              l
-                            ].reward.optional.credits.map(
-                              (credits: number) =>
-                                credits / data[d][l][s].energy
-                            ),
-                            expPerEnergy:
-                              data[d][l][s].reward.exp / data[d][l][s].energy,
                           },
                         };
                       }

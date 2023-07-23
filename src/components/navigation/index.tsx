@@ -4,7 +4,10 @@ import { cn } from "../ui/helpers";
 import "./styles.scss";
 
 export interface NavigationRoutes {
-  [path: string]: JSX.Element;
+  [path: string]: {
+    name: string;
+    component: () => JSX.Element | null;
+  };
 }
 
 interface NavigationContextProps {
@@ -51,12 +54,8 @@ export const createNavigation = () => {
     );
 
     return (
-      <NavigationContext.Provider
-        value={{ routes, page, setPage: handleSetPage }}
-      >
-        {typeof children === "function"
-          ? children(routes[page.path])
-          : children}
+      <NavigationContext.Provider value={{ routes, page, setPage: handleSetPage }}>
+        {typeof children === "function" ? children(routes[page.path]) : children}
       </NavigationContext.Provider>
     );
   };

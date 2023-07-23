@@ -4,11 +4,11 @@ body {
   font-size: 0.9rem;
   font-weight: normal;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 100%;
+  line-height: 120%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: t.color(back);
-  color: t.color(negative)
+  color: t.color(negative);
 }
 
 * {
@@ -17,28 +17,43 @@ body {
 
 a {
   display: inline-block;
+  color: t.color(negative);
+  text-decoration: none;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   display: block;
   position: relative;
   font-size: 100%;
   line-height: 100%;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0 1.5rem 0;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 350%;
   font-weight: bold;
   font-variant: small-caps;
   line-height: 100%;
   color: t.color(negative);
   padding: 0 0.6rem 0.4rem 0.6rem;
+  margin-bottom: 6rem;
   border-left: 0.05rem solid t.color(gray);
   border-bottom: 0.05rem solid t.color(gray);
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 100%;
@@ -51,10 +66,11 @@ h1, .h1 {
   }
 }
 
-h2, .h2 {
+h2,
+.h2 {
   z-index: 0;
   padding: 0 1.5rem;
-  margin: 1.5rem 0 2.5rem 0;
+  margin-bottom: 3rem;
   font-size: 160%;
   font-weight: bold;
   text-transform: uppercase;
@@ -64,7 +80,7 @@ h2, .h2 {
   &::after,
   &::before {
     z-index: -1;
-    content: '';
+    content: "";
     display: block;
     position: absolute;
   }
@@ -84,14 +100,28 @@ h2, .h2 {
     height: 100%;
     background-color: t.color(back);
   }
-
 }
 
-h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   padding: 0 0.5rem;
   margin: 0.5rem 0;
   font-size: 120%;
   font-weight: normal;
   text-transform: capitalize;
   color: t.color(negative);
+}
+
+$_aligments: left, right, center, justify;
+
+@each $aligment in $_aligments {
+  .text-#{$aligment} {
+    text-align: $aligment;
+  }
 }

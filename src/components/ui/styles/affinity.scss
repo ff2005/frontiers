@@ -1,0 +1,27 @@
+@use "./modules/theme.scss" as t;
+
+$_affinities: (
+  electric: (
+    color: #294acd,
+  ),
+  thermal: (
+    color: #ca5627,
+  ),
+  chemical: (
+    color: #46680c,
+  ),
+  antimater: (
+    color: #7e37d2,
+  ),
+);
+
+@each $affinity, $color in $_affinities {
+  .affinity-#{$affinity} {
+    $c: map-get($color, color);
+    color: t.color(negative) !important;
+    background-color: darken($c, 10%) !important;
+    background-image: linear-gradient(to right, $c, darken($c, 10%));
+    border-color: darken(t.color(negative), 80%) !important;
+    padding-right: 3rem !important;
+  }
+}

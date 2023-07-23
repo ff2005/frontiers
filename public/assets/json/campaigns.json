@@ -26,9 +26,7 @@
         "energy": 10,
         "reward": {
           "exp": 0,
-          "equip": {
-            "type": "generator"
-          },
+          "equip": { "type": "generator" },
           "optional": {
             "mainframe": { "quantity": 1, "stars": 2 }
           }
@@ -47,10 +45,9 @@
       "5": {
         "energy": 10,
         "reward": {
-          "exp": 0,
-          "equip": {
-            "type": "software"
-          },
+          "exp": 6693,
+          "battle": { "exp": 1673 },
+          "equip": { "type": "software" },
           "optional": {
             "mainframe": { "quantity": 1, "stars": 2 }
           }
@@ -60,9 +57,7 @@
         "energy": 10,
         "reward": {
           "exp": 0,
-          "equip": {
-            "type": "thusters"
-          },
+          "equip": { "type": "truster" },
           "optional": {
             "mainframe": { "quantity": 1, "stars": 2 }
           }

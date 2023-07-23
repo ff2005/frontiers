@@ -32,3 +32,11 @@ export const useAsset = <T extends any>(
 
   return { data, status: status.current, cancel };
 };
+
+export const useAsset2 = <T extends any>(
+  name: string,
+  parse = (data: any) => data as T
+) => {
+
+  
+}

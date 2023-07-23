@@ -7,9 +7,9 @@ export interface Bounties {
       reward: {
         exp: number;
         credits: number;
+        expPerEnergy: number;
+        creditsPerEnergy: number;
       };
-      creditsPerEnergy: number;
-      expPerEnergy: number;
     };
   };
 }
@@ -20,8 +20,11 @@ export const useBounties = () => {
       const bounty = data.level[l];
       levels[l] = {
         ...bounty,
-        creditsPerEnergy: bounty.reward.credits / bounty.energy,
-        expPerEnergy: bounty.reward.exp / bounty.energy,
+        reward: {
+          ...bounty.reward,
+          expPerEnergy: bounty.reward.exp / bounty.energy,
+          creditsPerEnergy: bounty.reward.credits / bounty.energy,
+        }
       };
       return levels;
     }, {}),

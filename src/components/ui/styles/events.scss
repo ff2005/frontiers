@@ -1,0 +1,34 @@
+@use "./modules/theme.scss" as t;
+
+$_events: (
+  equipment: (
+    color: #241718
+  ),
+  arena: (
+    color: #182325
+  ),
+  energy: (
+    color: #1e2412
+  ),
+  recruitment: (
+    color: #141a24
+  ),
+  promotion: (
+    color: #000
+  ),
+  bounty: (
+    color: #000
+  ),
+);
+
+@each $event, $color in $_events {
+  .event-#{$event} {
+    $c: lighten(map-get($color, color), 0%);
+    color: t.color(negative) !important;
+    background-color: $c !important;
+    background-image: linear-gradient(to right, $c, $c, $c, lighten($c, 5%), $c);
+    border-color: darken(t.color(negative), 80%) !important;
+    padding-right: 3rem !important;
+  } 
+}
+

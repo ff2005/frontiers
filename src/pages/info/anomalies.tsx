@@ -1,89 +1,76 @@
-import { useMemo } from "react";
 import { useAnomalies } from "../../hooks";
-import { Navigation, Table } from "../../components";
+import { Grid, Navigation } from "../../components";
 import { format } from "../../helper";
 
 export const Anomalies = () => {
   const anomalies = useAnomalies();
 
-  const data = useMemo(() => {
-    if (anomalies) {
-      const levels = Object.keys(anomalies.level);
-      return [
-        [
-          { value: "Levels", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: l,
-            header: true,
-          })),
-          { value: "", type: "empty" },
-        ],
-        [
-          { value: "Energy", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: anomalies.level[l].energy,
-            type: "number",
-          })),
-          { value: "Spend" },
-        ],
-        [
-          { value: "R1", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: format.toNumberRange(anomalies.level[l]["R1"]),
-            type: "number",
-          })),
-          { value: "Gain" },
-        ],
-        [
-          { value: "R2", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: format.toNumberRange(anomalies.level[l]["R2"]),
-            type: "number",
-          })),
-          { value: "Gain" },
-        ],
-        [
-          { value: "R3", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: format.toNumberRange(anomalies.level[l]["R3"]),
-            type: "number",
-          })),
-          { value: "Gain" },
-        ],
-        [
-          { value: "R1 / Energy", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: format.toNumberRange(anomalies.level[l].r1PerEnergy),
-            type: "number",
-          })),
-          { value: "", type: "empty" },
-        ],
-        [
-          { value: "R2 / Energy", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: format.toNumberRange(anomalies.level[l].r2PerEnergy),
-            type: "number",
-          })),
-          { value: "", type: "empty" },
-        ],
-        [
-          { value: "R3 / Energy", header: true, sticky: true },
-          ...levels.map((l) => ({
-            value: format.toNumberRange(anomalies.level[l].r3PerEnergy),
-            type: "number",
-          })),
-          { value: "", type: "empty" },
-        ],
-      ];
-    }
-    return [];
-  }, [anomalies]);
-
-  return (
-    <div>
-      <Navigation.Anchor name="anomalies" />
-      <h2>Anomalies</h2>
-      <Table data={data} />
-    </div>
-  );
+  if (anomalies) {
+    const levels = Object.keys(anomalies.level);
+    return (
+      <div>
+        <Navigation.Anchor name="anomalies" />
+        <h2>Anomalies</h2>
+        <Grid rows={8}>
+          <Grid.Item header sticky>Levels</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item header className="text-center" key={l}>
+              {l}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+          <Grid.Item header sticky>Energy</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {anomalies.level[l].energy}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Spend</Grid.Item>
+          <Grid.Item header sticky>R1</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {anomalies.level[l].R1 || ""}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Gain</Grid.Item>
+          <Grid.Item header sticky>R2</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {anomalies.level[l].R2 || ""}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Gain</Grid.Item>
+          <Grid.Item header sticky>R3</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {anomalies.level[l].R3 || ""}
+            </Grid.Item>
+          ))}
+          <Grid.Item className="text-center">Gain</Grid.Item>
+          <Grid.Item header sticky>R1 / Energy</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {format.toNumberRange(anomalies.level[l].r1PerEnergy)}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+          <Grid.Item header sticky>R2 / Energy</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {format.toNumberRange(anomalies.level[l].r2PerEnergy)}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+          <Grid.Item header sticky>R3 / Energy</Grid.Item>
+          {levels.map((l) => (
+            <Grid.Item className="text-right" key={l}>
+              {format.toNumberRange(anomalies.level[l].r3PerEnergy)}
+            </Grid.Item>
+          ))}
+          <Grid.Item />
+        </Grid>
+      </div>
+    );
+  }
+  return null;
 };

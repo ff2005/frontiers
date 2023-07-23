@@ -1,17 +1,17 @@
 @use "../styles/modules/theme.scss" as t;
 
-.table {
+.grid {
   margin: 2rem 0;
   max-width: 100%;
   max-height: 100%;
 
-  .table-container {
+  .grid-container {
     max-width: 100%;
     max-height: 100%;
     display: inline-block;
   }
 
-  .table-content {
+  .grid-content {
     max-width: 100%;
     max-height: 100%;
     display: grid;
@@ -28,38 +28,31 @@
     // &::-webkit-resizer                { width: 0; height: 0; display: none; }
   }
 
-  .table-cell {
+  .grid-item {
     margin-top: -1px;
     margin-left: -1px;
     padding: 0.6rem 1.2rem;
     border: 0.5px solid t.color(main, -60%);
     background-color: t.color(negative, 1%);
     color: t.color(positive);
+    white-space: nowrap;
 
-    &.table-cell--header {
+    &.grid-item--header {
       background-color: t.color(positive);
-      border: 1px solid t.color(main, 90%);
+      border-color: lighten(t.color(positive), 8%);
       color: t.color(negative);
+      text-transform: capitalize;
     }
   
-    &.table-cell--sticky {
+    &.grid-item--sticky {
       position: sticky;
       left: -1px;
       top: -1px;
     }
 
-    &.table-cell--empty {
+    &.grid-item--empty {
       background-color: transparent;
       border: 1px none;
     }
-
-    &.table-cell--center {
-      text-align: center;
-    }
-
-    &.table-cell--right {
-      text-align: right;
-    }
-  
   }
 }
