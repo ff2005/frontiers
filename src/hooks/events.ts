@@ -52,7 +52,7 @@ export const useEvents = () => {
   const currentEvents = useMemo(() => getEvents(today), [today]);
   const nextEvents = useMemo(
     () =>
-      Array.from(new Array(4))
+      Array.from(new Array(5))
         .map((_, i) => getEvent(new Date(today.getTime() + (i + 1) * cycle * 86400000)))
         .slice(0, 6 - currentEvents.length),
     [currentEvents, today]
