@@ -57,7 +57,7 @@ export const Alliance = () => {
           <Grid.Item header className="text-center">
             In
           </Grid.Item>
-          <Grid.Item className={`affinity-${alliance!.raid.currentAffinity.affinity.toLowerCase()}`}>
+          <Grid.Item className={`affinity-${alliance!.raid.currentAffinity.affinity}`}>
             {alliance.raid.currentAffinity.affinity}
           </Grid.Item>
           <Grid.Item>{format.toDate(alliance!.raid.currentAffinity.start)}</Grid.Item>
@@ -73,7 +73,7 @@ export const Alliance = () => {
           <Grid.Item header> </Grid.Item>
           {alliance.raid.nextAffinities.map((a) => (
             <Fragment key={`e${a.affinity}`}>
-              <Grid.Item className={`affinity-${a.affinity.toLowerCase()}`}>{a.affinity}</Grid.Item>
+              <Grid.Item className={`affinity-${a.affinity}`}>{a.affinity}</Grid.Item>
               <Grid.Item>{format.toDate(a.start)}</Grid.Item>
               <Grid.Item><MinuteTicker until={a.start} /></Grid.Item>
               <Grid.Item>{format.toDate(a.end)}</Grid.Item>

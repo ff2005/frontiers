@@ -29,11 +29,17 @@ export const Events = () => {
           </Grid.Item>
           {events.currentEvents.map((e) => (
             <Fragment key={`e${e.name}`}>
-              <Grid.Item header sticky className={`event-${e.name.toLowerCase()}`}>{e.name}</Grid.Item>
+              <Grid.Item header sticky className={`event-${e.name}`}>
+                {e.name}
+              </Grid.Item>
               <Grid.Item className="text-right">{format.toDate(e.start)}</Grid.Item>
-              <Grid.Item className="text-right"><MinuteTicker until={e.start} /></Grid.Item>
+              <Grid.Item className="text-right">
+                <MinuteTicker until={e.start} />
+              </Grid.Item>
               <Grid.Item className="text-right">{format.toDate(e.end)}</Grid.Item>
-              <Grid.Item className="text-right"><MinuteTicker until={e.end} /></Grid.Item>
+              <Grid.Item className="text-right">
+                <MinuteTicker until={e.end} />
+              </Grid.Item>
             </Fragment>
           ))}
           <Grid.Item header sticky className="text-center">
@@ -45,11 +51,17 @@ export const Events = () => {
           <Grid.Item header> </Grid.Item>
           {events.nextEvents.map((e: any) => (
             <Fragment key={`e${e.name}`}>
-              <Grid.Item header sticky className={`event-${e.name.toLowerCase()}`}>{e.name}</Grid.Item>
+              <Grid.Item header sticky className={`event-${e.name}`}>
+                {e.name}
+              </Grid.Item>
               <Grid.Item className="text-right">{format.toDate(e.start)}</Grid.Item>
-              <Grid.Item className="text-right"><MinuteTicker until={e.start} /></Grid.Item>
+              <Grid.Item className="text-right">
+                <MinuteTicker until={e.start} />
+              </Grid.Item>
               <Grid.Item className="text-right">{format.toDate(e.end)}</Grid.Item>
-              <Grid.Item className="text-right"><MinuteTicker until={e.end} /></Grid.Item>
+              <Grid.Item className="text-right">
+                <MinuteTicker until={e.end} />
+              </Grid.Item>
             </Fragment>
           ))}
         </Grid>

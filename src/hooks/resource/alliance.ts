@@ -33,13 +33,21 @@ export interface Alliance {
 
 const referenceDate = getUTCDate(2023, 1, 1, 0, 0, 0);
 
-const affinities = ["Electric", "Antimater", "Thermal", "Chemical"];
+const affinities = ["antimater", "thermal", "chemical", "electric"];
+
+const cycle = 7;
+const duration = 7;
 
 const getAffinity = (date: Date): AllianceRaidAffinityCalendar => {
-  const d = getUTCDate(date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate(), 0, 0, 0);
-  const a = Math.floor(Math.ceil(Math.floor((d.getTime() - referenceDate.getTime()) / 86400000) / 7) % 4);
-  const start = new Date(d.getTime() - d.getUTCDay() * 86400000);
-  const end = new Date(start.getTime() + 7 * 86400000);
+  const d = new Date(
+    Math.ceil((date.getTime() + new Date().getTimezoneOffset() * 60000) / 86400000) * 86400000 -
+      new Date().getTimezoneOffset() * 60000
+  );
+  const start = new Date(
+    d.getTime() - Math.ceil(((d.getTime() - referenceDate.getTime()) / 86400000) % cycle) * 86400000
+  );
+  const end = new Date(start.getTime() + duration * 86400000);
+  const a = ((start.getTime() - referenceDate.getTime()) / 86400000 / cycle) % affinities.length;
   return { affinity: affinities[a], start: start, end: end };
 };
 
@@ -48,11 +56,9 @@ export const useAlliance = () => {
 
   const { data } = useAsset<Alliance>("alliance", (data) => {
     const currentAffinity = getAffinity(today);
-
-    const nextAffinities = Array.from(new Array(3)).reduce<any[]>((e, _, i) => {
-      const n = new Date(today.getTime() + (i + 1) * 7 * 86400000);
-      return [...e, getAffinity(n)];
-    }, []);
+    const nextAffinities = Array.from(new Array(3)).map((_, i) =>
+      getAffinity(new Date(today.getTime() + (i + 1) * cycle * 86400000))
+    );
 
     return {
       ...data,
