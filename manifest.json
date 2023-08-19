@@ -18,8 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "start_url": "./frontiers",
+  "display": "fullscreen",
+  "theme_color": "#ff6200",
+  "background_color": "#242424"
 }
