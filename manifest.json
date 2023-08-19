@@ -21,5 +21,6 @@
   "start_url": "./frontiers",
   "display": "standalone",
   "theme_color": "#ff6200",
-  "background_color": "#242424"
+  "background_color": "#242424",
+  "orientation": "any"
 }
