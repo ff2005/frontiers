@@ -19,7 +19,7 @@
     }
   ],
   "start_url": "./frontiers",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#ff6200",
   "background_color": "#242424"
 }
