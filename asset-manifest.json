@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/frontiers/static/css/main.78c0c954.css",
-    "main.js": "/frontiers/static/js/main.2f34d8b7.js",
+    "main.js": "/frontiers/static/js/main.548448ad.js",
     "index.html": "/frontiers/index.html",
     "main.78c0c954.css.map": "/frontiers/static/css/main.78c0c954.css.map",
-    "main.2f34d8b7.js.map": "/frontiers/static/js/main.2f34d8b7.js.map"
+    "main.548448ad.js.map": "/frontiers/static/js/main.548448ad.js.map"
   },
   "entrypoints": [
     "static/css/main.78c0c954.css",
-    "static/js/main.2f34d8b7.js"
+    "static/js/main.548448ad.js"
   ]
 }

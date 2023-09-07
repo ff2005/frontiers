@@ -1,0 +1,86 @@
+{
+  "rewards": {
+    "recruitment": {
+      "milestones": [
+        { "reward": "credits", "quantity": 20000, "points": 1 },
+        { "reward": "mainframe rank 2", "quantity": 2, "points": 1 },
+        { "reward": "arena tickets", "quantity": 5, "points": 1 },
+        { "reward": "mainframe rank 3", "quantity": 3, "points": 1 },
+        { "reward": "energy pack", "quantity": 2, "points": 1 },
+        { "reward": "credits", "quantity": 75000, "points": 1 },
+        { "reward": "mainframe rank 4", "quantity": 1, "points": 1 },
+        { "reward": "equipment 5S", "quantity": 1, "points": 1 },
+        { "reward": "energy pack", "quantity": 2, "points": 1 },
+        { "reward": "platinum", "quantity": 100, "points": 1 },
+        { "reward": "mainframe rank 4", "quantity": 1, "points": 1 },
+        { "reward": "credits", "quantity": 250000, "points": 8000 }
+      ],
+      "level": "unit rarity",
+      "rules": [
+        { "level": "common", "points": 1 },
+        { "level": "uncommon", "points": 2 },
+        { "level": "rare", "points": 200 },
+        { "level": "epic", "points": 400 },
+        { "level": "legendary", "points": 4000 }
+      ]
+    },
+    "promotion": {
+      "milestones": [
+        { "reward": "public beacon", "quantity": 4, "points": 1 },
+        { "reward": "arena tickets", "quantity": 5, "points": 60 },
+        { "reward": "energy pack", "quantity": 2, "points": 120 },
+        { "reward": "platinum", "quantity": 100, "points": 200 },
+        { "reward": "thermal R3", "quantity": 20, "points": 250 },
+        { "reward": "specialist beacon", "quantity": 1, "points": 300 },
+        { "reward": "chemical R3", "quantity": 20, "points": 350 },
+        { "reward": "credits", "quantity": 75000, "points": 400 },
+        { "reward": "electic R3", "quantity": 20, "points": 550 },
+        { "reward": "specialist beacon", "quantity": 2, "points": 700 },
+        { "reward": "antimatter R3", "quantity": 20, "points": 850 },
+        { "reward": "epic refit", "quantity": 1, "points": 1000 }
+      ],
+      "level": "rank",
+      "rules": [
+        { "level": "2", "points": 1 },
+        { "level": "3", "points": 2 },
+        { "level": "4", "points": 5 },
+        { "level": "5", "points": 20 },
+        { "level": "6", "points": 100 }
+      ]
+    },
+    "bounty": {
+      "milestones": [
+        { "reward": "credits", "quantity": 10000, "points": 1 },
+        { "reward": "exp", "quantity": 10000, "points": 100 },
+        { "reward": "mainframe rank 2", "quantity": 2, "points": 200 },
+        { "reward": "platinum", "quantity": 100, "points": 300 },
+        { "reward": "credits", "quantity": 15000, "points": 400 },
+        { "reward": "exp", "quantity": 15000, "points": 500 },
+        { "reward": "mainframe rank 3", "quantity": 2, "points": 600 },
+        { "reward": "specialist beacon", "quantity": 1, "points": 800 },
+        { "reward": "credits", "quantity": 20000, "points": 1200 },
+        { "reward": "exp", "quantity": 20000, "points": 1600 },
+        { "reward": "mainframe rank 4", "quantity": 1, "points": 2200 },
+        { "reward": "specialist beacon", "quantity": 2, "points": 2800 }
+      ],
+      "level": "stage",
+      "rules": [
+        { "level": "1", "points": 1 },
+        { "level": "2", "points": 2 },
+        { "level": "3", "points": 3 },
+        { "level": "4", "points": 4 },
+        { "level": "5", "points": 5 },
+        { "level": "6", "points": 6 },
+        { "level": "7", "points": 7 },
+        { "level": "8", "points": 8 },
+        { "level": "9", "points": 9 },
+        { "level": "10", "points": 10 },
+        { "level": "11", "points": 11 },
+        { "level": "12", "points": 12 },
+        { "level": "13", "points": 13 },
+        { "level": "14", "points": 14 },
+        { "level": "15", "points": 15 }
+      ]
+    }
+  }
+}
